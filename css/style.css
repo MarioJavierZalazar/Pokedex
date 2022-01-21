@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background-image: url(../img/Sprinkle.svg);
+}
+
+.portada{
+    background-color: #E3350D;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #000;
+    border-radius: 25px;
+}
+
+.buscador {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    text-align: center;
+}
+
+.pokeImg {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin: auto;
+}
+
+.pokeDetail{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    margin: 10px auto;
+    width: 90%;
+}
+.pokeFinder {
+    border-radius: 25px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.img-container {
+    width: 200px;
+}
+
+.poke-img {
+    width: 100%;
+    border-radius: 100%;
+    border: 5px solid #000;
+}
+
+.pokeName {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pokeID {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pokeType {
+    display: flex;
+    justify-content: space-around;
+}
+
+.typeBox {
+    border: 2px solid #000;
+    width: 150px;
+    margin: 5px 10px 20px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.statsBox {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.statsName {
+    text-transform: uppercase;
+}
+
+.footer{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 0.8rem;
+}
