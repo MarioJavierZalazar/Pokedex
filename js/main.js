@@ -11,24 +11,24 @@ const buscarPokemon = document.querySelector('#buscarPokemon');
 let pokeColor;
 
 const typeColors = {
-    electric: '#f7ff85',
-    normal: '#eaeade',
-    fire: '#f8b80e',
-    water: '#36aff6',
-    ice: '#66d1e5',
-    rock: '#b4a270',
-    flying: '#dce5ea',
-    grass: '#67f70a',
-    psychic: '#fcb6d0',
-    dark: '#ccc',
-    ghost: '#bd98cb',
-    bug: '#d9fe9e',
-    poison: '#ca72ec',
-    ground: '#ede293',
-    dragon: '#d6b1fe',
-    steel: '#edefee',
-    fighting: '#ffaeaa',
-    fairy: '#fdd1e0',
+    electric: '#fffa24',
+    normal: '#ccc9aa',
+    fire: '#f67f0b',
+    water: '#0a7abc',
+    ice: '#1995a1',
+    rock: '#776a3e',
+    flying: '#5eb9b2',
+    grass: '#3e9709',
+    psychic: '#ec0e63',
+    dark: '#5f4632',
+    ghost: '#8e55a4',
+    bug: '#bddd6e',
+    poison: '#a819d7',
+    ground: '#e1d158',
+    dragon: '#8a55fd',
+    steel: '#7b8e8a',
+    fighting: '#e81319',
+    fairy: '#ffa0c2',
     default: '#2A1A1F',
 };
 
@@ -64,7 +64,7 @@ const setType = (types) => {
     types.forEach(type => {
         const typeBox = document.createElement('div');
         typeBox.classList.add('typeBox'); 
-        typeBox.style.color = '#000';
+        typeBox.style.color = '#fff';
         typeBox.style.backgroundColor = typeColors[type.type.name];
         typeBox.textContent = type.type.name;
         pokeType.appendChild(typeBox);

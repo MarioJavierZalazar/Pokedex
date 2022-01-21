@@ -93,6 +93,7 @@ body {
     font-weight: bold;
     padding: 10px;
     border-radius: 25px;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
 }
 
 .statsBox {
@@ -132,7 +133,8 @@ body {
     background-color: red;
     border-radius: 5px 5px 0 0;
     text-transform: uppercase;
-    color: #000;
+    color: #fff;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
 }
 
 .abilitieCard p {
