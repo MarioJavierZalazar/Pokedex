@@ -15,7 +15,7 @@
     <header class="portada">
         <h1>Pokedex</h1>
     </header>
-    <main class="container">
+    <article class="card">
         <section class="buscador">
             <form action="" id="buscarPokemon">
                 <label for="pokemon">Buscar pokemon por nombre o ID</label>
@@ -35,9 +35,13 @@
             <div data-poke-stats class="pokeStats"></div>
         </section>
         <section data-poke-error class="pokeError"></section>
-    </main>
+    </article>
+    <article class="card">
+        <h2 class="titles">Abilities</h2>
+        <div data-poke-abilities class="pokeAbilities"></div>
+    </article>
     <footer class="footer">
-        <p class="footerText">© Copyright 2021 by JZALAZAR</p>
+        <p class="footerText">© Copyright 2022 by JZALAZAR</p>
     </footer>
     <script src="./js/main.js"></script>
 </body>

@@ -5,25 +5,30 @@ const pokeImg = document.querySelector('[data-poke-img]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeType = document.querySelector('[data-poke-type]');
 const pokeStats = document.querySelector('[data-poke-stats]');
+const pokeAbilities = document.querySelector('[data-poke-abilities]');
 const buscarPokemon = document.querySelector('#buscarPokemon');
 
+let pokeColor;
+
 const typeColors = {
-    electric: '#FFEA70',
-    normal: '#B09398',
-    fire: '#FF675C',
-    water: '#0596C7',
-    ice: '#AFEAFD',
-    rock: '#999799',
-    flying: '#7AE7C7',
-    grass: '#4A9681',
-    psychic: '#FFC6D9',
-    ghost: '#561D25',
-    bug: '#A2FAA3',
-    poison: '#795663',
-    ground: '#D2B074',
-    dragon: '#DA627D',
-    steel: '#1D8A99',
-    fighting: '#2F2F2F',
+    electric: '#f7ff85',
+    normal: '#eaeade',
+    fire: '#f8b80e',
+    water: '#36aff6',
+    ice: '#66d1e5',
+    rock: '#b4a270',
+    flying: '#dce5ea',
+    grass: '#67f70a',
+    psychic: '#fcb6d0',
+    dark: '#ccc',
+    ghost: '#bd98cb',
+    bug: '#d9fe9e',
+    poison: '#ca72ec',
+    ground: '#ede293',
+    dragon: '#d6b1fe',
+    steel: '#edefee',
+    fighting: '#ffaeaa',
+    fairy: '#fdd1e0',
     default: '#2A1A1F',
 };
 
@@ -36,21 +41,22 @@ const findPokemon = (e) => {
 
 const obtenerPokeData = (data) => {
     const img = data.sprites.front_default;
-    const { types, stats} = data;
+    const { types, stats, abilities} = data;
 
     pokeName.textContent = `Pokemon: ${data.name}`;
     pokeId.textContent = `N° ${data.id}`;
     pokeImg.setAttribute('src', img);
-    pokeImg.style.display = 'block';
     setBackgroud(types);
     setType(types);
     setStats(stats);
+    setAbilities(abilities);
 
 };
 
 const setBackgroud = (types) => {
     const colorPrimario = typeColors[types[0].type.name];
     pokeImg.style.background = colorPrimario;
+    pokeColor = colorPrimario;
 };
 
 const setType = (types) => {
@@ -58,19 +64,7 @@ const setType = (types) => {
     types.forEach(type => {
         const typeBox = document.createElement('div');
         typeBox.classList.add('typeBox'); 
-        if (type.type.name == 'water' ||
-            type.type.name == 'grass' || 
-            type.type.name == 'ghost' ||
-            type.type.name == 'poison' ||
-            type.type.name == 'dragon' ||
-            type.type.name == 'steel' ||
-            type.type.name == 'fighting' ||
-            type.type.name == 'normal' ||
-            type.type.name == 'default'){
-                typeBox.style.color = '#fff'
-            } else {
-                typeBox.style.color = '#000'
-            }
+        typeBox.style.color = '#000';
         typeBox.style.backgroundColor = typeColors[type.type.name];
         typeBox.textContent = type.type.name;
         pokeType.appendChild(typeBox);
@@ -93,6 +87,36 @@ const setStats = (stats) => {
         pokeStats.appendChild(statsbox);
     })
 };
+
+const setAbilities = (abilities) => {
+    pokeAbilities.innerHTML = ''
+    abilities.forEach(abilitie => {
+        getAbilitieEffect(abilitie.ability.url);
+    })
+};
+
+const getAbilitieEffect = (effectUrl) => {
+    fetch(effectUrl).then(efectData => efectData.json()).then(response => obtenerEfecto(response));
+}
+
+const obtenerEfecto = (efects) => {
+    efects.effect_entries.forEach(efecto => {
+        if (efecto.language.name == 'en'){
+            const abilitiesBox = document.createElement('div');
+            abilitiesBox.classList.add('abilitieCard');
+            const abilitieValue = document.createElement('p');
+            const abilitieName = document.createElement('h3');
+            abilitieName.classList.add('abilitieTitle');
+            abilitieName.style.background = pokeColor;
+            abilitieName.innerHTML = efects.name;
+            abilitieValue.innerHTML = efecto.effect;
+            pokeAbilities.appendChild(abilitiesBox);
+            abilitiesBox.appendChild(abilitieName);
+            abilitiesBox.appendChild(abilitieValue);
+        }
+    })
+};
+
 
 const pokeNotFind = (err) =>{
     pokeName.textContent = 'No encontrado';
