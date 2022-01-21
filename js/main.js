@@ -7,6 +7,7 @@ const pokeType = document.querySelector('[data-poke-type]');
 const pokeStats = document.querySelector('[data-poke-stats]');
 const pokeAbilities = document.querySelector('[data-poke-abilities]');
 const buscarPokemon = document.querySelector('#buscarPokemon');
+const abilitiesCard = document.querySelector('.abilitiesCard');
 
 let pokeColor;
 
@@ -89,6 +90,7 @@ const setStats = (stats) => {
 };
 
 const setAbilities = (abilities) => {
+    abilitiesCard.style.display = 'block';
     pokeAbilities.innerHTML = ''
     abilities.forEach(abilitie => {
         getAbilitieEffect(abilitie.ability.url);
