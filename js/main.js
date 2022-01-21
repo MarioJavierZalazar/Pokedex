@@ -41,6 +41,7 @@ const obtenerPokeData = (data) => {
     pokeName.textContent = `Pokemon: ${data.name}`;
     pokeId.textContent = `N° ${data.id}`;
     pokeImg.setAttribute('src', img);
+    pokeImg.style.display = 'block';
     setBackgroud(types);
     setType(types);
     setStats(stats);
@@ -96,7 +97,8 @@ const setStats = (stats) => {
 const pokeNotFind = (err) =>{
     pokeName.textContent = 'No encontrado';
     pokeImg.setAttribute('src', './img/pngwing.com.png');
-    pokeImg.style.background =  '#fff';
+    pokeImg.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+    pokeImg.style.display = 'block';
     pokeType.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
