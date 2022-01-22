@@ -51,6 +51,7 @@ const obtenerPokeData = (data) => {
     setType(types);
     setStats(stats);
     setAbilities(abilities);
+    setHeightWeight(data.height, data.weight);
 
 };
 
@@ -117,6 +118,35 @@ const obtenerEfecto = (efects) => {
             abilitiesBox.appendChild(abilitieValue);
         }
     })
+};
+
+const convertidor = (value) => {
+    return value / 10;
+}; 
+
+const setHeightWeight = (height, weight) => {
+    const boxH = document.createElement('div');
+    const boxNameH = document.createElement('div');
+    const boxValueH = document.createElement('div');
+    const boxW = document.createElement('div');
+    const boxNameW = document.createElement('div');
+    const boxValueW = document.createElement('div');
+    boxH.classList.add('statsBox');
+    boxNameH.classList.add('statsName');
+    boxValueH.classList.add('statsValue');
+    boxW.classList.add('statsBox');
+    boxNameW.classList.add('statsName');
+    boxValueW.classList.add('statsValue');
+    boxNameH.textContent = 'height';
+    boxValueH.textContent = `${convertidor(height)} mts`;
+    boxNameW.textContent = 'weight';
+    boxValueW.textContent = `${convertidor(weight)} kg`;
+    boxH.appendChild(boxNameH);
+    boxH .appendChild(boxValueH);
+    pokeStats.appendChild(boxH);
+    boxW.appendChild(boxNameW);
+    boxW .appendChild(boxValueW);
+    pokeStats.appendChild(boxW);
 };
 
 
